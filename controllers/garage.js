@@ -6,7 +6,7 @@ exports.startGarageDoorLoop = function()
 
    setTimeout(function(){
        openOrCloseDoor('gpio write 7 1');
-     }, 5000)
+     }, 5000);
 }
 
 function openOrCloseDoor( gpioCommandIn )
