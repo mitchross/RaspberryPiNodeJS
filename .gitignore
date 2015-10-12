@@ -25,3 +25,11 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+.idea/.name
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/NodeJSPiGarageDoorOpenerGit.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/libraries/NodeJSPiGarageDoorOpenerGit_node_modules.xml

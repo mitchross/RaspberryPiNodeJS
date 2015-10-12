@@ -1,0 +1,15 @@
+
+doctype html
+// index.html
+// ASSIGN OUR ANGULAR MODULE
+html(ng-app='garageOpener')
+    head
+        // META
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
+        // load angular
+        script(src='javascripts/main.js')
+
+    body(ng-controller='mainController')
+        button(class="div.awrap" ng-click='openDoor()') Open
