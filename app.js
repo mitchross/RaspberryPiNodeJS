@@ -42,7 +42,9 @@ function startGarageDoorLoop()
 
    openOrCloseDoor( 'gpio write 7 0' );
 
-   setTimeout( openOrCloseDoor('gpio write 7 1'), 5000)
+   setTimeout(function(){
+       openOrCloseDoor('gpio write 7 1');
+     }, 5000)
 }
 
 function openOrCloseDoor( gpioCommandIn )
