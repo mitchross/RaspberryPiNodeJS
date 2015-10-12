@@ -7,9 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
-//Talk to console
-var exec = require('child_process').exec, child;
+var garage = require('./routes/garage');
 
 var app = express();
 
@@ -27,46 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/garage', garage);
 
 
-//Routes
-
-app.post("/api/garage/openclose" , function (req , res )
-{
-  res.send(200);
-  startGarageDoorLoop();
-});
-
-function startGarageDoorLoop()
-{
-
-   openOrCloseDoor( 'gpio write 7 0' );
-
-   setTimeout(function(){
-       openOrCloseDoor('gpio write 7 1');
-     }, 5000)
-}
-
-function openOrCloseDoor( gpioCommandIn )
-{
-
-  var gpioCommand = gpioCommandIn;
-
-  child = exec( gpioCommand,
-      function (error, stdout, stderr) {
-        if(stdout!==''){
-          console.log('---------stdout: ---------\n' + stdout);
-        }
-        if(stderr!==''){
-          console.log('---------stderr: ---------\n' + stderr);
-        }
-        if (error !== null) {
-          console.log('---------exec error: ---------\n[' + error+']');
-        }
-      });
-
-}
-
+//Routes - App level routes here
 
 
 // catch 404 and forward to error handler
