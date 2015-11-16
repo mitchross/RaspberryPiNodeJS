@@ -12,9 +12,7 @@ exports.startGarageDoorLoop = function()
 function openOrCloseDoor( gpioCommandIn )
 {
 
-  var gpioCommand = gpioCommandIn;
-
-  child = exec( gpioCommand,
+  child = exec( gpioCommandIn,
       function (error, stdout, stderr) {
         if(stdout!==''){
           console.log('---------stdout: ---------\n' + stdout);

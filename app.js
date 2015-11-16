@@ -1,3 +1,4 @@
+//"Imports"
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,14 +6,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//Project level setup
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+//Initialize our express app
 var app = express();
 
-require('./routes/garage')(app);
+
+
 
 // view engine setup
+// Uses Jade templating engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -22,11 +27,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//sets up the "public" facing site
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Routes
 app.use('/', routes);
 app.use('/users', users);
-
+require('./routes/garage')(app);
 
 //Routes - App level routes here
 
